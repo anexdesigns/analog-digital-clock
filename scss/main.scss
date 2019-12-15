@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Squada+One&display=swap');
+// Color Options
+$navbarBgColorDark: #333;
+$navbarBgTransparent: rgba(0,0,0,.3);
+$darkTextColor: #333;
+$blackTextColor: #000;
+$whiteTextColor: #fff;
+$showcaseOverlay: rgba(0,0,0,.2);
+$analogOverlay: rgba(255, 255, 255, 1);
+$white: #fff;
+$dark: #333;
+// Clock Options
+$size: 500px;
+//Icon Options
+$iconSize: 55px;
+$lightmode: #ababab;
+
+body {
+      font-family: 'Squada One', cursive;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      background: url('../img/showcase-bg.jpg') 
+      no-repeat center center/cover;
+      height: 100vh;
+}
+
+
+#navbar{
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      top: 0;
+      background: $navbarBgTransparent;
+      color: $whiteTextColor;
+      padding: 10px 30px 10px 5px;
+      z-index: 1;
+      .toggle-time {
+            cursor: pointer;
+      }
+      .dark-mode, .light-mode{
+            margin: 4px 45px 0 0;
+            color: $dark;
+            cursor: pointer;
+      }
+      .light-mode {
+            display: none;
+            color: $lightmode;
+      }
+      .digital-black, .analog-black, .digital-white, .analog-white {
+            height: $iconSize;
+            width: $iconSize;
+            cursor: pointer;
+      }
+      .digital-black {
+            background: url('../img/digital-black.svg') no-repeat center center/cover;
+            transition: all 1s ease-in-out;
+      }
+      .analog-black{
+            background: url('../img/analog-black.svg') no-repeat center center/cover;
+            display: none;
+            transition: all 1s ease-in-out;
+      }
+}
+
+
+#showcase-container{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0 2rem;
+      /* Overlay */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $showcaseOverlay;
+      transition: all 1s ease-out;
+      min-width: 630px;
+      min-height: 700px;
+}
+
+
+
+#digital-clock {
+      text-align: center;
+      display: none;
+      font-size: 125px;
+      color: $darkTextColor;
+      transition: all 1s ease-out;
+}
+
+#clock-container {
+      border-radius: 100%;
+      background-color: $analogOverlay;
+      border: 5px solid $dark;
+      transition: all 1s ease-out;
+}
+
+#analog-clock {
+      height: $size;
+      width: $size;
+      overflow: hidden;
+      border-radius: 100%;
+      position: relative;
+      .__minute, .__hour, .__second, .__axis {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: black;
+            transform-origin: bottom center;
+            transform: rotate(0deg);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+            z-index: 1;
+      }
+      .__hour {
+            height: #{($size / 2) / 2};
+            width: 6px;
+            top: -25%;
+      }
+      .__minute {
+            height: #{($size / 2) / 1.5};
+            width: 4px;
+            top: -33%;
+            transform: rotate(90deg);
+      }
+      .__second {
+            height: #{($size / 2) / 1.25};
+            width: 4px;
+            top: -40%;
+            border-radius: 4px;
+            background: #FF4B3E;
+            transform: rotate(180deg);
+      }
+      .__axis {
+            height: 25px;
+            width: 25px;
+            top: 0;
+            border-radius: 100px;
+            background: white;
+            border: 2px solid #1b1b1b;
+      }
+
+}

@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Squada+One&display=swap");
+body {
+  font-family: 'Squada One', cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: url("../img/showcase-bg.jpg") no-repeat center center/cover;
+  height: 100vh; }
+
+#navbar {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 10px 30px 10px 5px;
+  z-index: 1; }
+  #navbar .toggle-time {
+    cursor: pointer; }
+  #navbar .dark-mode, #navbar .light-mode {
+    margin: 4px 45px 0 0;
+    color: #333;
+    cursor: pointer; }
+  #navbar .light-mode {
+    display: none;
+    color: #ababab; }
+  #navbar .digital-black, #navbar .analog-black, #navbar .digital-white, #navbar .analog-white {
+    height: 55px;
+    width: 55px;
+    cursor: pointer; }
+  #navbar .digital-black {
+    background: url("../img/digital-black.svg") no-repeat center center/cover;
+    transition: all 1s ease-in-out; }
+  #navbar .analog-black {
+    background: url("../img/analog-black.svg") no-repeat center center/cover;
+    display: none;
+    transition: all 1s ease-in-out; }
+
+#showcase-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  /* Overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 1s ease-out;
+  min-width: 630px;
+  min-height: 700px; }
+
+#digital-clock {
+  text-align: center;
+  display: none;
+  font-size: 125px;
+  color: #333;
+  transition: all 1s ease-out; }
+
+#clock-container {
+  border-radius: 100%;
+  background-color: white;
+  border: 5px solid #333;
+  transition: all 1s ease-out; }
+
+#analog-clock {
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+  border-radius: 100%;
+  position: relative; }
+  #analog-clock .__minute, #analog-clock .__hour, #analog-clock .__second, #analog-clock .__axis {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: black;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    z-index: 1; }
+  #analog-clock .__hour {
+    height: 125px;
+    width: 6px;
+    top: -25%; }
+  #analog-clock .__minute {
+    height: 166.66667px;
+    width: 4px;
+    top: -33%;
+    transform: rotate(90deg); }
+  #analog-clock .__second {
+    height: 200px;
+    width: 4px;
+    top: -40%;
+    border-radius: 4px;
+    background: #FF4B3E;
+    transform: rotate(180deg); }
+  #analog-clock .__axis {
+    height: 25px;
+    width: 25px;
+    top: 0;
+    border-radius: 100px;
+    background: white;
+    border: 2px solid #1b1b1b; }
